@@ -1,0 +1,31 @@
+<body>
+	<h1>Books</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Body</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @bookers.each do |booker| %>
+			<tr>
+				<td><%= booker.title %></td>
+				<td><%= booker.body %></td>
+				<td><%= link_to "show", booker_path(booker.id), class: "show_#id}" %></td>
+				<td><%= link_to "edit", edit_booker_path(booker.id), class: "edit_#id}" %></td>
+				<td><%= link_to "delete", booker_path(booker.id), class: "destroy_#id}", method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<h2>New book</h2>
+	<%= form_for(@booker) do |f| %>
+    <h4>Title</h4>
+    <%= f.text_field :title, class: "book_title" %>
+    <h4>Body</h4>
+    <%= f.text_area :body %>
+    <%= f.submit 'Create Book', class: "book_body" %>
+<% end %>
+</body>

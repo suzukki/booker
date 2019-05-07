@@ -1,0 +1,9 @@
+<body>
+	<h2>Title</h2>
+	<p><%= @booker.title %></p>
+	<h2>Body</h2>
+	<p><%= @booker.body %></p>
+</body>
+
+<a><%= link_to "Edit", edit_booker_path(@booker.id) %></a>
+<a href="/books" class="back">Back</a>
